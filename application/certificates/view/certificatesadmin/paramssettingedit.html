@@ -1,0 +1,108 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+		<!--主题-->
+		<div class="page-header">
+			<h1>
+				您当前操作
+				<small>
+					<i class="ace-icon fa fa-angle-double-right"></i>
+					修改参数
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal ajaxForm" name="sys" method="post" action="{:url('paramsSettingEdit')}">
+					<input type="hidden" name="id" value="{$id}" />
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 参数名称： </label>
+						<div class="col-sm-9">
+							<input type="text" name="name" id="Propaganda_language" value="{$info.name}"  class="col-xs-10 col-sm-3" required/>
+							<span class="help-inline col-xs-12 col-sm-6">元
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 是否可以多选： </label>
+						<div class="col-sm-9" style="padding-top:5px;">
+							<input name="multi" value="1" class="ace ace-switch ace-switch-5" {if condition="$info['multi'] eq 1"}checked{/if} type="checkbox" />
+							<span class="lbl">默认单选</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 是否开启： </label>
+						<div class="col-sm-9" style="padding-top:5px;">
+							<input name="state" id="state" {if condition="$info.state eq 1"}checked{/if}  value="1" class="ace ace-switch ace-switch-5" type="checkbox" />
+							<span class="lbl">默认禁用</span>
+						</div>
+					</div>
+						<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 所属模块： </label>
+						<div class="col-sm-9" style="padding-top:5px;">
+							<select name="type"  class="col-sm-3 selector type" required="">
+								<option {if condition="$info.type eq 1"} selected {/if} value="1">搜索模块</option>
+								<option {if condition="$info.type eq 2"} selected {/if} value="2">输入模块</option>
+							</select>
+							<!-- <span class="lbl">默认禁用</span> -->
+						</div>
+					</div>
+					<div class="space-4"></div>
+					<div class="form-group input_type" >
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 输入数据类型： </label>
+						<div class="col-sm-9" style="padding-top:5px;">
+							<select name="input_type"  class="col-sm-3 selector input_type_select" required="">
+								<option {if condition="$info.input_type eq 1"} selected {/if} value="1">字符串</option>
+								<option {if condition="$info.input_type eq 2"} selected {/if} value="2">数值</option>
+								<option {if condition="$info.input_type eq 3"} selected {/if} value="3">文件</option>
+							</select>
+							<!-- <span class="lbl">默认禁用</span> -->
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="clearfix form-actions">
+						<div class="col-sm-offset-3 col-sm-9">
+							<button class="btn btn-info" type="submit">
+								<i class="ace-icon fa fa-check bigger-110"></i>
+								保存
+							</button>
+
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset">
+								<i class="ace-icon fa fa-undo bigger-110"></i>
+								重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{/block}
+{block name='scripts'}
+	<script type="text/javascript">
+	var type = {$info.type};
+	if(type == 1 ){
+		$('.input_type').css('display','none');
+		//$('.input_type_select').val() =0;
+	}
+		$('.type').change(function(){
+			$id = $(this).val();
+			if($id == 2){
+				$('.input_type').css('display','block');
+				$('.input_type_select').attr('required');
+			// alert($id);
+			}else{
+				$('.input_type').css('display','none');
+				$('.input_type_select').removeAttr('required');
+			}
+		})
+	</script>
+{/block}

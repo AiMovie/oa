@@ -1,0 +1,123 @@
+<link rel="stylesheet" href="../../../../public/static/admin/ace/css/ace.min.css">{extend name="admin@public/base" /}
+{block name="main-content"}
+<style>
+    a:hover{
+        text-decoration:none;
+        cursor:pointer;
+    }
+    a{
+        font-size: 14px;
+        display: inline-block;
+        color: rgb(130,130,130);
+    }
+    .font{
+        color: rgb(130,130,130);
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .lab{
+        text-align:right;
+        font-size: 16px;
+    }
+    .h{
+        height:50px;
+    }
+</style>
+<div class="page-content">
+    <!--主题-->
+    <div style="margin-top: 46px;" class="page-header">
+        <h1>
+            您当前操作
+            <small>
+                <i class="ace-icon fa fa-angle-double-right"></i>
+                合同详细内容
+            </small>
+        </h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 h">
+            <label class="col-sm-2 lab control-label no-padding-right">
+                合同名称：
+            </label>
+            <div class="col-sm-6">
+                <span class="font col-xs-12 col-sm-3">
+                    {$result.contract_name}
+                </span>
+            </div>
+        </div>
+        <div class="col-xs-12 h">
+            <label class="col-sm-2 lab control-label no-padding-right">
+                合同主体：
+            </label>
+            <div class="col-sm-6">
+                <span class="font col-xs-12 col-sm-3">{$result.main}</span>
+            </div>
+        </div>
+        <div class="col-xs-12 h">
+            <label class="col-sm-2 lab control-label no-padding-right">
+                金额：
+            </label>
+            <div class="col-sm-6">
+                <span class="font col-xs-12 col-sm-3">
+                    {$result.amount}
+                </span>
+            </div>
+        </div>
+        <div class="col-xs-12 h">
+            <label class="col-sm-2 lab control-label no-padding-right">
+                起止时间：
+            </label>
+            <div class="col-sm-6">
+                <span class="font col-xs-12 col-sm-6">
+                    {$result.start_time|date='Y-m-d',###}——{$result.end_time|date='Y-m-d',###}
+                </span>
+            </div>
+        </div>
+        <div class="col-xs-12 h">
+            <label class="col-sm-2 lab control-label no-padding-right">
+                是否授权：
+            </label>
+            <div class="col-sm-6">
+                <span class="font col-xs-12 col-sm-6">
+                    {if condition="$result.auth eq 2"} 未知{/if}
+                    {if condition="$result.auth eq 1"} 已授权{/if}
+                    {if condition="$result.auth eq 0"} 未授权{/if}
+                </span>
+            </div>
+        </div>
+        <div class="col-xs-12" style="min-height: 150px;">
+            <label class="col-sm-2 lab control-label no-padding-right">
+                合同摘要：
+            </label>
+            <!--<br/>-->
+            <div class="col-sm-12">
+                <span class="col-sm-2"></span>
+                <span class="font col-xs-12 col-sm-8">
+                    {$result.content}
+                </span>
+            </div>
+        </div>
+        <div class="col-xs-12 h">
+            <label class="col-sm-2 lab control-label no-padding-right">
+                附件：
+            </label>
+            <div class="col-sm-4">
+                <table class="table ">
+                    {foreach name="file" item="v"}
+                    <tr>
+                        <td colspan="6"><a href="{$v.path}">{$v.file_name}</a></td>
+                        <td ><a href="{$v.path}">下载</a></td>
+                    </tr>
+                    {/foreach}
+                    <tr>
+                        <td colspan="6"></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
+{block name="scripts"}
+{/block}

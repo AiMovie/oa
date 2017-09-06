@@ -1,0 +1,86 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+		<!--主题-->
+		<div class="page-header">
+			<h1>
+				您当前操作
+				<small>
+					<i class="ace-icon fa fa-angle-double-right"></i>
+					二手机械配置设置
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal ajaxForm" name="sys" method="post" action="{:url('Setting')}">
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 开启信息审核： </label>
+						<div class="col-sm-9">
+							<input name="check_open" id="check_open" {if condition="$sys['check_open'] eq 1"}checked{/if}  value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
+							<span class="lbl">默认关闭</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 发布价格： </label>
+						<div class="col-sm-9">
+							<input type="number" name="options[bidding_price]" id="Propaganda_language" value="{$sys.bidding_price}"  class="col-xs-10 col-sm-3" required/>
+							<span class="help-inline col-xs-12 col-sm-6">元
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 竞价费用： </label>
+						<div class="col-sm-9">
+							<input type="number" name="options[release_price]" id="Propaganda_language" value="{$sys.release_price}"  class="col-xs-10 col-sm-3" required/>
+							<span class="help-inline col-xs-12 col-sm-6">元
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 查看信息收费： </label>
+						<div class="col-sm-9" style="padding-top:5px;">
+							<input name="see_open" id="see_open" {if condition="$sys.see_open eq 1"}checked{/if}  value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
+							<span class="lbl">默认开启</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 查看费用： </label>
+						<div class="col-sm-9">
+							<input type="number" name="options[see_price]" id="Propaganda_language" value="{$sys.see_price}"  class="col-xs-10 col-sm-3" required/>
+							<span class="help-inline col-xs-12 col-sm-6">元
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="clearfix form-actions">
+						<div class="col-sm-offset-3 col-sm-9">
+							<button class="btn btn-info" type="submit">
+								<i class="ace-icon fa fa-check bigger-110"></i>
+								保存
+							</button>
+
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset">
+								<i class="ace-icon fa fa-undo bigger-110"></i>
+								重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{/block}

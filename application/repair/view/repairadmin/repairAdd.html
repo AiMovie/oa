@@ -1,0 +1,208 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<script src="/static/uploadify/api-uploadify.js" type="text/javascript"></script>
+	<div class="page-content">
+		<!--主题-->
+		<div class="page-header">
+			<h1>
+				您当前操作
+				<small>
+					<i class="ace-icon fa fa-angle-double-right"></i>
+					添加修理厂
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal ajaxForm" name="sys" method="post" action="{:url('repairAdd')}">
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 修理厂类型： </label>
+						<div class="col-sm-9">
+							<div class="radio" >
+								{foreach name='repair_list' item='repair'}
+								<label>
+									<input name="type" type="radio" class="ace" value="{$repair.id}" />
+									<span class="lbl"> {$repair.name}</span>
+								</label>
+								{/foreach}
+							</div>
+						</div>
+					</div>
+
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 工种： </label>
+						<div class="checkbox">
+							{foreach name='class_list' item='diyflag'}
+								<label id="class_{$diyflag.diyflag_value}">
+									<input class="ace ace-checkbox-2" name="class_id[]" type="checkbox" id="news_flag_va{$diyflag.id}" value="{$diyflag.id}" />
+									<span class="lbl"> {$diyflag.name}</span>
+								</label>
+							{/foreach}
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 服务类型： </label>
+						<div class="col-sm-9">
+							<div class="checkbox" >
+								{foreach name='service_list' item='service'}
+								<label>
+									<input  name="service_id[]"  type="checkbox" class="ace" value="{$service.id}" required/>
+									<span class="lbl">{$service.name}</span>
+								</label>
+								{/foreach}
+							</div>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 所在地：  </label>
+						<div class="col-sm-9">
+							<select name="province_id" id="province_id" class="col-sm-3 selector" required>
+								<option value="" selected>省份/直辖市</option>
+								{foreach name="province" item="list"}
+								<option value="{$list.id}" >{$list.name}</option>
+								{/foreach}
+							</select>
+							<select name="city_id" id="city_id" class="col-sm-3 selector" required>
+								<option value="0">市/县</option>
+							</select>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+
+
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 姓名： </label>
+						<div class="col-sm-9">
+							<input type="text" name="name" id="name" value=""  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 电话： </label>
+						<div class="col-sm-9">
+							<input type="text" name="telphone" id="telphone" value=""  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group" id="pic_list">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 图片： </label>
+						<div class="col-sm-9">
+							<input type="hidden" name="checkpic" id="checkpic" value="{$sys.start_img}" />
+							<input type="hidden" name="oldcheckpic" id="oldcheckpic" value="{$sys.start_img}" />
+							<input type="hidden" name="oldcheckpicname" id="oldcheckpic" value="{$sys.start_img}" />
+							<a href="javascript:;" class="file" title="点击选择所要上传的图片">
+								<input type="file" name="file0" id="file0" multiple="multiple"/>
+								选择上传文件
+							</a>
+							&nbsp;&nbsp;<a href="javascript:;" onclick="return backpic('{if condition="$sys.site_logo eq ''"}/static/img/no_img.jpg{else /}{$sys.start_img}{/if}');" title="还原修改前的图片" class="file">
+							撤销上传
+							</a>
+							<div><img src="{if condition="$sys.start_img neq ''"}{$sys.start_img}{else/}/static/img/no_img.jpg{/if}" height="70" id="img0" ></div>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 展示图片： </label>
+						<div class="col-sm-9">
+							<span class="btn btn-info" onclick="GetUploadify('/ajax/uploadify/uploads','uploadify','缩略图上传','image','shopimg',20,500000,'uppicarr')">
+								选择上传图片
+							</span>
+							<span class="lbl">最多可上传20张<br />
+							</span>
+							<p></p>
+							<div class="col-sm-9" id="uppicarr">
+
+							</div>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 是否审核： </label>
+						<div class="col-sm-9" style="padding-top:5px;">
+							<input name="is_check" value="1" class="ace ace-switch ace-switch-5" type="checkbox" />
+							<span class="lbl">默认通过</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 是否发布： </label>
+						<div class="col-sm-9" style="padding-top:5px;">
+							<input name="state" id="is_effective" {if condition="$info.is_effective neq 0"}checked{/if}  value="1" class="ace ace-switch ace-switch-5" type="checkbox" />
+							<span class="lbl">默认发布</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 所属会员账号： </label>
+						<div class="col-sm-9">
+							<input type="text" name="member_list_tel" id="member_list_tel" value=""  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="clearfix form-actions">
+						<div class="col-sm-offset-3 col-sm-9">
+							<button class="btn btn-info" type="submit">
+								<i class="ace-icon fa fa-check bigger-110"></i>
+								保存
+							</button>
+
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset">
+								<i class="ace-icon fa fa-undo bigger-110"></i>
+								重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{/block}
+{block name="scripts"}
+	<script>
+	    //省变化
+	    $("#province_id").change(function(){
+	        var id = $("#province_id").val();
+	        $.ajax({
+	            type:"post",
+	            url:"{:Url('getCity')}",
+	            data:{
+	                province_id:id
+	            },
+	            success:function(str){
+	                $('#city_id').html(str);
+	            }
+	        });
+	    });
+	</script>
+{/block}

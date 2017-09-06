@@ -1,0 +1,61 @@
+<extend name="Admin@Public/base" />
+<block name="main-content">
+	<div class="page-content">
+
+
+
+		<!--主题-->
+		<div class="page-header">
+			<h1>
+				您当前操作
+				<small>
+					<i class="ace-icon fa fa-angle-double-right"></i>
+					提现审核
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal ajaxForm2" name="rechargeAddRun" method="post" action="{:U('withdraw')}">
+					<input type="hidden" name="withd_id" value="{$id}" />
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 审核状态： </label>
+						<div class="col-sm-10" style="padding-top:5px;">
+							<input type="radio" name="state" value='2'/>通过
+							<input type="radio" name="state" value='3'/>未通过
+							<input type="radio" name="state" value='4'/>取消
+						</div>
+					</div>
+					<div class="space-4"></div>
+                    <div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 原因 </label>
+						<div class="col-sm-10" style="padding-top:5px;">
+							<input type="text" name="remark" placeholder="原因"  class="col-xs-10 col-sm-5" />
+							<span class="lbl col-xs-12 col-sm-7"><span class="red"></span></span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="clearfix form-actions">
+						<div class="col-md-offset-3 col-md-9">
+							<button class="btn btn-info" type="submit">
+								<i class="ace-icon fa fa-check bigger-110"></i>
+								保存
+							</button>
+
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset">
+								<i class="ace-icon fa fa-undo bigger-110"></i>
+								重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div><!-- /.page-content -->
+</block>
+<block name="scripts">
+	<script type="text/javascript" src="__PUBLIC__/others/region.js"></script>
+</block>

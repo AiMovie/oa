@@ -1,0 +1,84 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+		<!--主题-->
+		<div class="page-header">
+			<h1>
+				您当前操作
+				<small>
+					<i class="ace-icon fa fa-angle-double-right"></i>
+					 注册登陆配置
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal ajaxForm" name="sys" method="post" action="{:url('runregist')}">
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 是否开启注册： </label>
+						<div class="col-sm-9" style="padding-top:5px;">
+							<input name="options[email_open]" id="email_open" {/if condition='$sys.email_open eq 1'>checked{/if}  value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
+							<span class="lbl"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 注册方式： </label>
+						<div class="col-sm-9">
+							<select name="options[smtpsecure]"  class="col-xs-10 col-sm-5" required>
+								<option value="1" selected >用户账号注册</option>
+								<option value="2">手机号注册</option>
+								<option value="3">邮箱号注册</option>
+							</select>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 账号验证规则： </label>
+						<div class="col-sm-9">
+							<input type="text" name="options[email_rename]" id="email_rename" value=" "  class="col-xs-10 col-sm-5" required/>
+								<span class="help-inline col-xs-12 col-sm-7">
+									<span class="middle" id="restwo"></span>
+								</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 密码验证规则： </label>
+						<div class="col-sm-9">
+							<input type="email" name="options[email_name]" id="email_name" value=" "  class="col-xs-10 col-sm-5" required/>
+											<span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle" id="restwo"></span>
+											</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 是否开启验证码： </label>
+						<div class="col-sm-9" style="padding-top:5px;">
+							<input name="options[email_open]" id="email_open" checked   value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
+							<span class="lbl"></span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+					<div class="clearfix form-actions">
+						<div class="col-sm-offset-3 col-sm-9">
+							<button class="btn btn-info" type="submit">
+								<i class="ace-icon fa fa-check bigger-110"></i>
+								保存
+							</button>
+
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset">
+								<i class="ace-icon fa fa-undo bigger-110"></i>
+								重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{/block}

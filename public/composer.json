@@ -1,0 +1,6 @@
+{
+    "require": {
+        "topthink/think-helper": "^1.0",
+        "symfony/var-dumper": "^3.3"
+    }
+}

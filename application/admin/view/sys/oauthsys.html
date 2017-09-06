@@ -1,0 +1,227 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+
+
+
+		<!--主题-->
+		<div class="page-header">
+			<h1>
+				您当前操作
+				<small>
+					<i class="ace-icon fa fa-angle-double-right"></i>
+					第三方登录
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal ajaxForm" name="oauthsys" method="post" action="{:url('runoauthsys')}">
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 是否开启QQ登录： </label>
+						<div class="col-sm-9" style="padding-top:5px;">
+							<input name="options[qq_open]" id="qq_open" {/if condition='$sys.qq_open eq 1'>checked{/if}  value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
+							<span class="lbl"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> QQ APPID： </label>
+						<div class="col-sm-9">
+							<input type="text" name="qq_appid" id="qq_appid" value="{$oauth_qq.APP_KEY}"  placeholder="请输入QQ APPID"  class="col-xs-10 col-sm-5" required/>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+                                            <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle" id="resone"></span>
+											</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> QQ APP KEY： </label>
+						<div class="col-sm-9">
+							<input type="text" name="qq_appkey" id="qq_appkey" value="{$oauth_qq.APP_SECRET}" placeholder="请输入QQ APP KEY"   class="col-xs-10 col-sm-5" required/>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+                                            <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle" id="restwo"></span>
+											</span>
+						</div>
+					</div>
+					<div class="page-header form-group">
+						<label class="col-sm-3 control-label no-padding-right"></label>
+						<div class="col-sm-9">
+							<a href="http://connect.qq.com/" target="_blank">点击此处</a>获取QQ互联APPID及APP KEY
+						</div>
+					</div>
+					
+					
+					<!-- 新浪微博 -->
+                    <div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 是否开启新浪微博登录： </label>
+						<div class="col-sm-9" style="padding-top:5px;">
+							<input name="options[sina_open]" id="sina_open" {/if condition='$sys.sina_open eq 1'}checked{/if}  value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
+							<span class="lbl"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 新浪微博APPID： </label>
+						<div class="col-sm-9">
+							<input type="text" name="sina_appid" id="sina_appid" value="{$oauth_sina.APP_KEY}"  placeholder="新浪微博APPID"  class="col-xs-10 col-sm-5" required/>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+                                            <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle" id="resthr"></span>
+											</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 新浪微博 APP KEY： </label>
+						<div class="col-sm-9">
+							<input type="text" name="sina_appkey" id="sina_appkey" value="{$oauth_sina.APP_SECRET}" placeholder="新浪微博 APP KEY"   class="col-xs-10 col-sm-5" required/>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+                                            <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle" id="resfour"></span>
+											</span>
+						</div>
+					</div>
+					<div class="page-header form-group">
+						<label class="col-sm-3 control-label no-padding-right"></label>
+						<div class="col-sm-9">
+							<a href="http://open.weibo.com/" target="_blank">点击此处</a>获取新浪微博互联APPID及APP KEY
+						</div>
+					</div>
+					
+					<!--微信-->
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 是否开启微信登录： </label>
+						<div class="col-sm-9" style="padding-top:5px;">
+							<input name="options[webchat_open]" id="webchat_open" {/if condition='$sys.webchat_open eq 1'}checked{/if}  value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
+							<span class="lbl"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 微信APPID： </label>
+						<div class="col-sm-9">
+							<input type="text" name="webchat_appid" id="webchat_appid" value="{$oauth_webchat.APP_KEY}"  placeholder="微信APPID"  class="col-xs-10 col-sm-5" required/>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+                                            <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle" id="resthr"></span>
+											</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 微信 APP KEY： </label>
+						<div class="col-sm-9">
+							<input type="text" name="webchat_appkey" id="webchat_appkey" value="{$oauth_webchat.APP_SECRET}" placeholder="微信APP KEY"   class="col-xs-10 col-sm-5" required/>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+                                            <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle" id="resfour"></span>
+											</span>
+						</div>
+					</div>
+					<div class="page-header form-group">
+						<label class="col-sm-3 control-label no-padding-right"></label>
+						<div class="col-sm-9">
+							<a href="https://open.weixin.qq.com/" target="_blank">点击此处</a>获取微信APPID及APP KEY
+						</div>
+					</div>
+
+                    <!--淘宝-->
+                    <div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 是否开启淘宝登录： </label>
+						<div class="col-sm-9" style="padding-top:5px;">
+							<input name="options[taobao_open]" id="taobao_open" {/if condition='$sys.taobao_open eq 1'}checked{/if}  value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
+							<span class="lbl"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 淘宝APPID： </label>
+						<div class="col-sm-9">
+							<input type="text" name="taobao_appid" id="taobao_appid" value="{$oauth_taobao.APP_KEY}"  placeholder="taobaoAPPID"  class="col-xs-10 col-sm-5" required/>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+                                            <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle" id="resthr"></span>
+											</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 淘宝 APP KEY： </label>
+						<div class="col-sm-9">
+							<input type="text" name="taobao_appkey" id="taobao_appkey" value="{$oauth_taobao.APP_SECRET}" placeholder="taobaoAPP KEY"   class="col-xs-10 col-sm-5" required/>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+                                            <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle" id="resfour"></span>
+											</span>
+						</div>
+					</div>
+					<div class="page-header form-group">
+						<label class="col-sm-3 control-label no-padding-right"></label>
+						<div class="col-sm-9">
+							<a href="http://open.taobao.com/" target="_blank">点击此处</a>获取淘宝APPID及APP KEY
+						</div>
+					</div>
+					
+					
+					<!--百度-->
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 是否开启百度登录： </label>
+						<div class="col-sm-9" style="padding-top:5px;">
+							<input name="options[baidu_open]" id="baidu_open" {/if condition='$sys.baidu_open eq 1'}checked{/if}  value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
+							<span class="lbl"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 百度APPID： </label>
+						<div class="col-sm-9">
+							<input type="text" name="baidu_appid" id="baidu_appid" value="{$oauth_baidu.APP_KEY}"  placeholder="baiduAPPID"  class="col-xs-10 col-sm-5" required/>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+                                            <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle" id="resthr"></span>
+											</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 百度 APP KEY： </label>
+						<div class="col-sm-9">
+							<input type="text" name="baidu_appkey" id="baidu_appkey" value="{$oauth_baidu.APP_SECRET}" placeholder="baiduAPP KEY"   class="col-xs-10 col-sm-5" required/>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>必填</span>
+                                            <span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle" id="resfour"></span>
+											</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right"></label>
+						<div class="col-sm-9">
+							<a href="http://open.baidu.com/" target="_blank">点击此处</a>获取百度APPID及APP KEY
+						</div>
+					</div>
+
+                    <div class="space-4"></div>
+					<div class="clearfix form-actions">
+						<div class="col-sm-offset-3 col-sm-9">
+							<button class="btn btn-info" type="submit">
+								<i class="ace-icon fa fa-check bigger-110"></i>
+								保存
+							</button>
+
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset">
+								<i class="ace-icon fa fa-undo bigger-110"></i>
+								重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+
+	</div><!-- /.page-content -->
+{/block}

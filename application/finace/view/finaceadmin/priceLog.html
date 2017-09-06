@@ -1,0 +1,72 @@
+<extend name="Admin@Public/base" />
+<block name="main-content">
+	<div class="page-content">
+		<div class="row maintop">
+			<div class="col-xs-10 col-sm-5">
+				<form name="admin_list_sea" class="form-search" method="post" action="{:U('priceLog')}">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<i class="ace-icon fa fa-check"></i>
+						</span>
+						<input type="text" name="keyword" id="keyword" class="form-control" value="{$keyword}" placeholder="输入需查询的用户名" />
+						<span class="input-group-btn">
+							<button type="submit" class="btn btn-purple btn-sm">
+								<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+								搜索
+							</button>
+						</span>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<div>
+					<form id="leftnav" name="leftnav" method="post" action="" >
+						<input type="hidden" name="checkk" id="checkk" value="1" /><!--用于判断操作类型-->
+						<table class="table table-striped table-bordered table-hover" id="dynamic-table">
+							<thead>
+							<tr>
+								<th>ID</th>
+								<th class="hidden-sm hidden-xs">用户名</th>
+								<th class="hidden-sm hidden-xs">收入金额</th>
+								<th class="hidden-sm hidden-xs">支出金额</th>
+								<th class="hidden-sm hidden-xs">增加冻结金额</th>
+								<th class="hidden-sm hidden-xs">减少冻结金额</th>
+								<th class="hidden-sm hidden-xs">剩余金额</th>
+								<th class="hidden-sm hidden-xs">剩余冻结金额</th>
+								<th class="hidden-sm hidden-xs">资金类型</th>
+								<th class="hidden-sm hidden-xs">变动类型</th>
+								<th class="hidden-sm hidden-xs">备注说明</th>
+							</tr>
+							</thead>
+
+							<tbody>
+
+							<foreach name="list" item="v">
+								<tr>
+									<td height="28" >{$v.id}</td>
+									<td class="hidden-sm hidden-xs"><a href="{:U('priceLog',array('member_list_id'=>$v['member_list_id']))}">{$v.member_list_username}</a></td>
+									<td class="hidden-sm hidden-xs">{$v.income}</td>
+									<td class="hidden-sm hidden-xs">{$v.expenditure}</td>
+									<td class="hidden-sm hidden-xs">{$v.frozen_inc}</td>
+									<td class="hidden-sm hidden-xs">{$v.frozen_dec}</td>
+									<td class="hidden-sm hidden-xs">{$v.surplus}</td>
+									<td class="hidden-sm hidden-xs">{$v.surplus_frozen}</td>
+									<td class="hidden-sm hidden-xs">{$v.fund_type_name}</td>
+									<td class="hidden-sm hidden-xs">{$v.fund_change_type_name}</td>
+									<td class="hidden-sm hidden-xs">{$v.remark}</td>
+								</tr>
+							</foreach>
+							<tr>
+								<td height="50" colspan="11" align="left">{$page}</td>
+							</tr>
+							</tbody>
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+
+	</div><!-- /.page-content -->
+</block>

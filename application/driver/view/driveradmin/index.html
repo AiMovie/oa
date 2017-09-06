@@ -1,0 +1,164 @@
+{extend name="Admin@Public/base"/}
+{block name="main-content"}
+	<div class="page-content">
+
+		<div class="row maintop">
+			<div class="col-xs-12 col-sm-1">
+				<a href="{:Url('driverAdd')}">
+					<button class="btn btn-xs btn-danger">
+						<i class="ace-icon fa fa-bolt bigger-110"></i>
+						添加司机
+					</button>
+				</a>
+			</div>
+			<div class="col-xs-12 col-sm-9">
+				<form name="admin_list_sea" class="form-search" method="post" action="{:Url('index')}">
+					<div class="input-group">
+						<input style="padding: 4px 4px 3px;" class="col-sm-2" type="text" name="telphone" id="key" class="form-control search-query admin_sea" value="{:input('telphone')}" placeholder="电话" />
+						<select class="col-sm-2"  name="type">
+							<option value="">请选择证件类型</option>
+							<option value="1" {if condition="input('type') eq 10"}selected{/if}>A照</option>
+							<option value="2" {if condition="input('type') eq 13"}selected{/if}>B照</option>
+						</select>
+						<select class="col-sm-2"  name="salary">
+							<option value="" selected>薪资要求</option>
+							{foreach name="salary_list" item="salary"}
+							<option value="{$salary.id}" >{$salary.name}</option>
+							{/foreach}
+						</select>
+						<select class="col-sm-2"  name="province_id" id="province_id">
+							<option value="">省份/直辖市</option>
+							{foreach name="province" item="v"}
+								<option value="{$v.id}" {if condition="$v['id'] eq input('province_id')"}selected{/if}>{$v.name}</option>
+							{/foreach}
+						</select>
+						<select class="col-sm-2"  name="city_id" id="city_id">
+							<option value="">市/县</option>
+							{foreach name="city_list" item="v"}
+								<option value="{$v.id}" {if condition="$v['id'] eq input('city_id')"}selected{/if} >{$v.name}</option>
+							{/foreach}
+						</select>
+						<span class="input-group-btn">
+							<button type="submit" class="btn btn-xs  btn-purple">
+								<span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+								搜索
+							</button>
+						</span>
+					</div>
+				</form>
+			</div>
+			<div class="input-group-btn">
+				<a href="{:Url('index')}">
+					<button type="button" class="btn btn-xs  btn-purple">
+						<span class="ace-icon fa fa-globe icon-on-right bigger-110"></span>
+						显示全部
+					</button>
+				</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<div>
+					<table class="table table-striped table-bordered table-hover" id="dynamic-table">
+						<thead>
+						<tr>
+							<th class="hidden-xs">ID</th>
+							<th class="hidden-sm hidden-xs">姓名</th>
+							<th class="hidden-sm hidden-xs">司机类型</th><!--复选没有显示-->
+							<th class="hidden-sm hidden-xs">证件类型</th><!--复选没有显示-->
+							<th class="hidden-sm hidden-xs">性别</th>
+							<th class="hidden-sm hidden-xs">籍贯</th>
+							<th class="hidden-sm hidden-xs">电话</th>
+							<th class="hidden-sm hidden-xs">文化程度</th><!--复选没有显示-->
+							<th class="hidden-sm hidden-xs">年龄</th>
+							<th class="hidden-sm hidden-xs">驾龄</th>
+							<th class="hidden-sm hidden-xs">工作区域</th>
+							<th class="hidden-sm hidden-xs">薪资要求</th>
+							<th class="hidden-sm hidden-xs">发布人</th>
+							<th class="hidden-sm hidden-xs">添加时间</th>
+							<th class="hidden-xs">审核状态</th>
+							<th class="hidden-xs">激活状态</th>
+							<th style="border-right:#CCC solid 1px;">操作</th>
+						</tr>
+						</thead>
+						<tbody>
+						{foreach name="list" item="v"}
+							<tr>
+								<td class="hidden-xs" height="28" >{$v.id}</td>
+								<td class="hidden-sm hidden-xs">{$v.name|default="未设置"}</td>
+								<td class="hidden-sm hidden-xs">{$v.diver_type|default="未设置"}</td>
+								<td class="hidden-sm hidden-xs">{$v.card_type|default="未设置"}</td>
+								<td class="hidden-sm hidden-xs">{$v.sex_a}</td>
+								<td class="hidden-sm hidden-xs">{$v.home|default="未设置"}</td>
+								<td class="hidden-sm hidden-xs">{$v.telphone|default="未设置"}</td>
+								<td class="hidden-sm hidden-xs">{$v.education_level|default="未设置"}</td>
+								<td class="hidden-sm hidden-xs">{$v.age|default="未设置"}</td>
+								<td class="hidden-sm hidden-xs">{$v.driving_age|default="未设置"}</td>
+								<td class="hidden-sm hidden-xs">{$v.work|default="未设置"}</td>
+								<!-- <td>	<?php qq($v);?></td> -->
+								<td class="hidden-sm hidden-xs">{$v.salary|default="未设置"}</td>
+								<td class="hidden-sm hidden-xs">{$v.member_list_tel}</td>
+								<td class="hidden-sm hidden-xs">{$v.create_time|date='Y-m-d H:i:s',###}</td>
+								{if condition='$v.is_check eq 1'}
+									<td class="hidden-sm hidden-xs">待审查</td>
+								{elseif condition='$v.is_check eq 2' /}
+									<td class="hidden-sm hidden-xs">通过</td>
+								{else /}
+									<td class="hidden-sm hidden-xs">不通过</td>
+								{/if}
+								<td class="hidden-xs">
+									{if condition='$v.is_effective eq 1'}
+										<a class="red active-btn" href="{:Url('driver_active')}" data-id="{$v.id}" title="已激活">
+											<div id="jh{$v.id}">
+												<button class="btn btn-minier btn-yellow">已激活</button>
+											</div>
+										</a>
+										{else/}
+										<a class="red active-btn" href="{:Url('driver_active')}" data-id="{$v.id}" title="未激活">
+											<div id="jh{$v.id}">
+												<button class="btn btn-minier btn-danger">未激活</button>
+											</div>
+										</a>
+									{/if}
+								</td>
+								<td>
+									<div class="hidden-sm hidden-xs action-buttons">
+										<a class="green"  href="{:Url('driverEdit',array('id'=>$v['id'],'p'=>input('p',1)))}" title="修改">
+											<i class="ace-icon fa fa-pencil bigger-130"></i>
+										</a>
+										<a class="red confirm-rst-url-btn" href="{:Url('driverDelete',array('id'=>$v['id'],'p'=>input('p',1)))}" data-info="你确定要删除吗？" title="删除">
+											<i class="ace-icon fa fa-trash-o bigger-130"></i>
+										</a>
+									</div>
+								</td>
+							</tr>
+						{/foreach}
+						<tr>
+							<td height="50" colspan="17" align="left">{$page}</td>
+						</tr>
+						</tbody>
+					</table>
+
+				</div>
+			</div>
+		</div>
+	</div><!-- /.page-content -->
+{/block}
+{block name="scripts"}
+	<script>
+	    //省变化
+	    $("#province_id").change(function(){
+	        var id = $("#province_id").val();
+	        $.ajax({
+	            type:"post",
+	            url:"{:Url('getCity')}",
+	            data:{
+	                province_id:id
+	            },
+	            success:function(str){
+	                $('#city_id').html(str);
+	            }
+	        });
+	    });
+	</script>
+{/block}

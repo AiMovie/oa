@@ -1,0 +1,250 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<script src="/static/uploadify/api-uploadify.js" type="text/javascript"></script>
+	<div class="page-content">
+		<!--主题-->
+		<div class="page-header">
+			<h1>
+				您当前操作
+				<small>
+					<i class="ace-icon fa fa-angle-double-right"></i>
+					修改代办证件
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal ajaxForm" name="sys" method="post" action="{:url('certificateupdate')}">
+				<input type="hidden" value="{$my_info['certificate_id']}" name='certificate_id'>
+				
+				{if condition="isset($list['37']) "}
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 证件类型： </label>
+						<div class="col-sm-9">
+							<div class="radio" >
+							{if condition="$multi eq 0"}
+								{foreach name='$list["37"]' item='type'}
+								
+								<label id="class_{$driver.driver_value}">
+									<input {if condition="$my_info['certificate_typeid'] eq $type['id']  "}checked  {/if} name="type" id="beno" type="radio" class="ace ace-checkbox-2" value="{$type.id}"/>
+									<span class="lbl"> {$type.name}</span>
+								</label>
+								{/foreach}
+							{else /}
+								{foreach name='$list["37"]' item='v'}
+									<label id="class">
+										<input {if condition="strstr((string)$type,(string)$v['id'])" } checked {/if} class="ace ace-checkbox-2" name="type[]" type="checkbox"  value="{$v.id}" />
+										<span class="lbl"> {$v.name}</span>
+									</label>
+								{/foreach}
+							{/if}
+							</div>
+						</div>
+					</div>
+					{/if}
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1">证件等级 ： </label>
+						<div class="col-sm-9">
+							<div class="checkbox">
+							
+								{foreach name="list['218']" key ='k' item="type"}
+								
+								<label id="class">
+									<input class="ace ace-checkbox-2" name="parts_type[]" {if condition="strstr($my_info['parts_type'],(string)$type['id'])"}checked {/if} type="checkbox" id="news_flag_va{$type.id}" value="{$type.id}" />
+									<span class="lbl"> {$type.name}</span>
+								</label>
+								{/foreach}
+								<div class="help-inline inline" >
+									<span class="middle red" id="restwo">*</span>
+								</div>
+							</div>
+						</div>
+					</div> 
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1">培训机构名称 ： </label>
+						<div class="col-sm-9">
+							<input type="text" name="school" id="" value="{$my_info.schoolname}"  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 区域： </label>
+						<div class="col-sm-9">
+							<select name="province" id="province_id" class="col-sm-3 selector" required>
+								<option value="" selected>省份/直辖市</option>
+								{foreach name="province" item="list"}
+								<option {if condition="$my_info['pro_name'] eq $list['name']  "} selected {/if} value="{$list.id}" >{$list.name}</option>
+								{/foreach}
+							</select>
+							<select name="city" id="city_id" class="col-sm-3 selector" required>
+								<option value="0">市/县</option>
+								{foreach name="city" item="list"}
+								<option {if condition="$my_info['ciyt_name'] eq $list['name']  "} selected {/if} value="{$list.id}" >{$list.name}</option>
+								{/foreach}
+							</select>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1">详情标题： </label>
+						<div class="col-sm-9">
+							<input type="text" name="info_title"  value="{$my_info.info_title}"  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1">详情内容： </label>
+						<div class='col-sm-9 '>
+							<textarea class="col-sm-6" name="content" row="10" >{$my_info.info_content}</textarea>
+						</div>
+					</div>
+					
+
+					<div class="space-4"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 培训机构资历(年)： </label>
+						<div class="col-sm-9">
+							<input type="number"  name="school_age"  value="{$my_info.school_age}"  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+					<div class="form-group" id="pic_list">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 封面图片： </label>
+						<div class="col-sm-9">
+							<input type="hidden" name="checkpic" id="checkpic" value="{}" />
+							<input type="hidden" name="oldpic"  value="{$my_info.pic_path}" />
+							<input type="hidden" name="oldcheckpic" id="oldcheckpic" value="{}" />
+							<input type="hidden" name="oldcheckpicname" id="oldcheckpic" value="{}" />
+							<a href="javascript:;" class="file" title="点击选择所要上传的图片">
+								<input type="file" name="file0" id="file0" multiple="multiple"/>
+								选择上传文件
+							</a>
+							&nbsp;&nbsp;<a href="javascript:;" onclick="return backpic('{if condition="$sys.site_logo eq ''"}/static/img/no_img.jpg{else /}{$sys.start_img}{/if}');" title="还原修改前的图片" class="file">
+							撤销上传
+							</a>
+							<div><img src="{if condition="$my_info.pic_path "}{$my_info.pic_path}{else/}/static/img/no_img.jpg{/if}" height="70" id="img0" ></div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 审核状态：  </label>
+						<div class="col-sm-9">
+							<select name="is_check" id="is_check" class="col-sm-3 selector" required>
+								<option {if condition="$result.is_check eq 1"} selected {/if} value="1">待审查</option>
+								<option {if condition="$result.is_check eq 2"} selected {/if} value="2">通过</option>
+								<option {if condition="$result.is_check eq 3"} selected {/if} value="3">不通过</option>
+							</select>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span></span>
+						</div>
+					</div>
+
+
+					<div id="reject"  class="form-group" {if condition="$result.is_check neq 3"} style="display:none;" {/if}>
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 拒绝原因：  </label>
+						<div class="col-sm-9">
+							<input type="text" name="reject_reason" id="reject_reason" value="{$result.reject_reason}" class="col-xs-10 col-sm-4" />
+							<span class="lbl">&nbsp;&nbsp;<span class="red">
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 是否发布： </label>
+						<div class="col-sm-9" style="padding-top:5px;">
+							<input {if condition="$my_info['is_effective'] eq 1  "}checked  {/if} name="is_effective" id="is_effective" {if condition="$info.is_effective neq 0"}checked{/if}  value="1" class="ace ace-switch ace-switch-5" type="checkbox" />
+							<span class="lbl">默认发布</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 所属会员手机号： </label>
+						<div class="col-sm-9">
+							<input type="text" name="member_list_tel" value= "{$my_info.member_list_tel}" id="member_list_tel" value=""  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="clearfix form-actions">
+						<div class="col-sm-offset-3 col-sm-9">
+							<button class="btn btn-info" type="submit">
+								<i class="ace-icon fa fa-check bigger-110"></i>
+								保存
+							</button>
+
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset">
+								<i class="ace-icon fa fa-undo bigger-110"></i>
+								重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{/block}
+{block name="scripts"}
+	<script>
+	    //省变化
+	    $("#province_id").change(function(){
+	        var id = $("#province_id").val();
+	       
+	        $.ajax({
+	            type:"post",
+	            url:"{:Url('getCity')}",
+	            data:{
+	                province_id:id
+	            },
+	            success:function(str){
+	                $('#city_id').html(str);
+	            }
+	        });
+	    });
+
+        //籍贯省变化
+        $("#province").change(function(){
+            var id = $("#province").val();
+            $.ajax({
+                type:"post",
+                url:"{:Url('getCity')}",
+                data:{
+                    province_id:id
+                },
+                success:function(str){
+                    $('#city').html(str);
+                }
+            });
+        });
+         
+         $("#is_check").change(function () {
+            if($(this).find("option:selected").val()==3){
+                $("#reject").show();
+                $("#reject_reason").attr('required','required')
+			}else{
+                $("#reject").hide()
+                 $("#reject_reason").removeAttr('required')
+				$("#reject_reason").val("");
+            }
+        })
+	</script>
+{/block}

@@ -1,0 +1,125 @@
+{extend name="public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="row">
+					<div class="space-6"></div>
+					<div class="col-sm-7 infobox-container">
+						<div class="infobox infobox-green col-xs-12 col-sm-6 col-md-6 col-lg-4">
+							<div class="infobox-icon">
+								<i class="ace-icon fa fa-folder"></i>
+							</div>
+							<div class="infobox-data">
+								<span class="infobox-data-number">{$tonews_count}</span>
+								<div class="infobox-content">今日普通文章数</div>
+							</div>
+							<div class="stat <if condition='$difday lt 1'>stat-important<else />stat-success</if>">{$difday|round=###,0}%</div>
+						</div>
+						<div class="infobox infobox-blue col-xs-12 col-sm-6 col-md-6 col-lg-4">
+							<div class="infobox-icon">
+								<i class="ace-icon fa fa-user"></i>
+							</div>
+							<div class="infobox-data">
+								<span class="infobox-data-number">{$tomembers_count}</span>
+								<div class="infobox-content">今日增加会员</div>
+							</div>
+							<div class="stat <if condition='$difday_m lt 1'>stat-important<else />stat-success</if>">{$difday_m|round=###,0}%</div>
+						</div>
+						<div class="infobox infobox-orange infobox-dark col-xs-12 col-sm-6 col-md-6 col-lg-4">
+							<div class="infobox-icon">
+								<i class="ace-icon fa fa-folder"></i>
+							</div>
+
+							<div class="infobox-data">
+								<div class="infobox-content">总文章数</div>
+								<a href="{:url('News/News/news_list')}"><div class="infobox-content">{$news_count}</div></a>
+							</div>
+						</div>
+						<div class="infobox infobox-green infobox-dark col-xs-12 col-sm-6 col-md-6 col-lg-4">
+							<div class="infobox-icon">
+								<i class="ace-icon fa fa-users"></i>
+							</div>
+							<div class="infobox-data">
+								<div class="infobox-content">总会员数</div>
+								<a href="{:url('Member/Member/member_list')}"><div class="infobox-content">{$members_count}</div></a>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-xs-12">
+								<div class="space-6"></div>
+							</div>
+						</div>
+						<div class="widget-box sl-indextop10 text-left">
+							<div class="widget-header">
+								<h5 class="widget-title"><span style="font-size:14px; font-family:Microsoft YaHei">框架&系统信息</span></h5>
+								<div class="widget-body">
+									<div class="widget-main">
+										<p class="alert alert-danger sl-line-height25">
+											框架版本：ThinkPHP{$info.ThinkPHPTYE}&nbsp;&nbsp;上传附件限制：{$info.ONLOAD}<br />
+											系统版本：{$info.RUNTYPE}<br />
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="widget-box sl-indextop10 text-left">
+							<div class="widget-header">
+								<h5 class="widget-title"><span style="font-size:14px; font-family:Microsoft YaHei">开发团队&贡献者</span></h5>
+							</div>
+							<div class="widget-body">
+								<div class="widget-main">
+									<p class="alert alert-info sl-line-height25">
+										Sanmi：<a href="http://www.sanmi.com" target="_blank" alt="SanmiCMF">www.sanmi.com</a>
+										<br />
+										开发团队：三米技术PHP团队<br />
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="vspace-12-sm"></div>
+
+					<div class="col-sm-5">
+						<!-- 安全检测开始 -->
+						<div class="panel {if condition="$system_safe"}panel-default{else /}panel-danger{/if}">
+						<div class="panel-heading">
+							<i class="ace-icon fa fa-bolt"></i>
+							<span class="icon-dashboard"></span> 系统安全检测
+						</div>
+						<div class="panel-body">
+							{if condition="$system_safe"}
+								<p class="text-success"><span class="glyphicon glyphicon-ok-sign"></span> 当前系统安全！</p>
+							{/if}
+							{if condition="$weak_setting_admin_password"}
+								<p class="text-danger"><span class="glyphicon glyphicon-info-sign"></span> 检测到您的后台登录密码为弱密码！</p>
+							{/if}
+							{if condition="$danger_mode_debug"}
+								<p class="text-warning"><span class="glyphicon glyphicon-info-sign"></span> 当前系统运行在调试模式，可能会影响运行性能及安全！</p>
+							{/if}
+							<!--[if lte IE 8]>
+							<p class="text-warning">
+								<span class="glyphicon glyphicon-info-sign"></span> 浏览器版本过低！
+							</p>
+							<![endif]-->
+						</div>
+					</div>
+					<!-- 安全检测结束 -->
+					<!-- 文章排行开始 -->
+					<div class="widget-box widget-color-blue">
+						<div class="widget-header">
+							<h5 class="widget-title bigger lighter sl-font14">
+								<i class="ace-icon fa fa-table"></i>
+								<span style="font-size:14px; font-family:Microsoft YaHei">热门文章排行</span>
+							</h5>
+						</div>
+					</div>
+					<!-- 文章排行结束 -->
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.col -->
+	</div><!-- /.row -->
+	</div>
+{/block}

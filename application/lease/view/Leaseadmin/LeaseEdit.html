@@ -1,0 +1,376 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<script src="/static/uploadify/api-uploadify.js" type="text/javascript"></script>
+	<div class="page-content">
+		<!--主题-->
+		<div style="margin-top: 46px;" class="page-header">
+			<h1>
+				您当前操作
+				<small>
+					<i class="ace-icon fa fa-angle-double-right"></i>
+					 修改租赁信息
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal ajaxForm" name="sys" method="post" action="{:url('leaseEdit')}">
+					<input type="hidden" name="id" id="id" value="{$result.id}" />
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 租赁类型： </label>
+						<div class="col-sm-9">
+							<div class="radio" id="rdo" >
+								{foreach name='$type_list' item='type'}
+								<label id="class_{$type.driver_value}">
+									<input name="type" {if condition="$result.type eq $type.id"} checked {/if} type="radio" class="ace ace-checkbox-2" value="{$type.id}"/>
+									<span class="lbl"> {$type.name}</span>
+								</label>
+								{/foreach}
+							</div>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="box1 box">
+
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 选择机械类型：  </label>
+							<div class="col-sm-9">
+								<select name="mechanical_id" id="mechanical_id" class="col-sm-3 selector" >
+									<option value="">请选择</option>
+									{foreach name="mechanical_list" item="v"}
+									<option {if condition="$result.mechanical_id eq $v.id"} selected {/if}  value="{$v.id}">{$v.mechanical_name}</option>
+									{/foreach}
+								</select>
+								<span class="lbl">&nbsp;&nbsp;<span class="red">*</span></span>
+							</div>
+						</div>
+						<div class="space-4"></div>
+
+
+						<div class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 选择机械品牌：  </label>
+							<div class="col-sm-9">
+								<select name="brand_id" id="brand_id" class="col-sm-3 selector" >
+									<option value="{$result.brand_id}">{$result.brand_name}</option>
+									{foreach name="brand_list" item="list"}
+									<option value="{$list.id}">{$list.brand_name}</option>
+									{/foreach}
+								</select>
+								<span class="lbl">&nbsp;&nbsp;<span class="red">*</span></span>
+							</div>
+						</div>
+						<div class="space-4"></div>
+
+
+						<div  class="form-group">
+							<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 选择机械型号：  </label>
+							<div class="col-sm-9">
+								<select name="mechanical_model_id" id="mechanical_model_id" class="col-sm-3 selector" >
+									<option value="{$result.mechanical_model_id}">{$result.model_name}</option>
+									{foreach name="model_list" item="list"}
+									<option {if condition="$result.mechanical_model_id neq $list.id"} selected {/if} value="{$list.id}">{$list.model_name}</option>
+									{/foreach}
+								</select>
+								<span class="lbl">&nbsp;&nbsp;<span class="red">*</span></span>
+							</div>
+						</div>
+						<div class="space-4"></div>
+
+					</div>
+
+					<div class="form-group date">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1">出厂日期：   </label>
+						<div class="input-group date form_date col-md-3" data-date="2010-09-16T05:25:07Z" data-date-format="yyyy-mm-d" data-link-field="dtp_input1">
+							<input class="form-control" name="manufacture_date" id="manufacture_date" size="16" type="text" value="{$result.manufacture_date}" readonly>
+							<!--<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>-->
+							<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+						</div>
+						<input type="hidden" id="dtp_input1" value="" /><br/>
+					</div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 类型： </label>
+						<div class="col-sm-9">
+							<div class="radio" >
+								{foreach name='$style_list' item='style'}
+								<label id="class_{$style.driver_value}">
+									<input name="class_id" {if condition="$result.class_id eq $style.id"} checked {/if} type="radio" class="ace ace-checkbox-2" value="{$style.id}"/>
+									<span class="lbl"> {$style.name}</span>
+								</label>
+								{/foreach}
+							</div>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 工作区域：  </label>
+						<div class="col-sm-9">
+							<select name="province_id" id="province_id" class="col-sm-3 selector" required>
+								<option value="" selected>省份/直辖市</option>
+								{foreach name="province" item="list"}
+								<option {if condition="$result.province_id eq $list.id"} selected {/if} value="{$list.id}" >{$list.name}</option>
+								{/foreach}
+							</select>
+							<select name="city_id" id="city_id" class="col-sm-3 selector" required>
+								<option value="0">市/县</option>
+								{foreach name="workcitylist" item="list"}
+								<option {if condition="$result.city eq $list.id"} selected {/if} value="{$list.id}"  >{$list.name}</option>
+								{/foreach}
+							</select>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 姓名： </label>
+						<div class="col-sm-9">
+							<input type="text" name="name" id="name" value="{$result.name}"  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 民族： </label>
+						<div class="col-sm-9">
+							<input type="text" name="nation" id="nation" value="{$result.nation}"  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 电话： </label>
+						<div class="col-sm-9">
+							<input type="text" name="telphone" id="telphone" value="{$result.telphone}"  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 车牌号： </label>
+						<div class="col-sm-9">
+							<input type="text" name="car_num" id="car_num" value="{$result.car_num}"  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group box2 box">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1">方数： </label>
+						<div class="col-sm-9">
+							<input type="text" name="squares" id="squares" value="{$result.squares}"  class="col-xs-10 col-sm-6" />
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group box3 box">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1">吨数： </label>
+						<div class="col-sm-9">
+							<input type="text" name="tonnage" id="tonnage" value="{$result.tonnage}"  class="col-xs-10 col-sm-6" />
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group box4 box">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 小时： </label>
+						<div class="col-sm-9">
+							<input type="text" name="hours" id="hours" value="{$result.hours}"  class="col-xs-10 col-sm-6" />
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+
+					<!--<div class="form-group">-->
+						<!--<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 是否审核： </label>-->
+						<!--<div class="col-sm-9" style="padding-top:5px;">-->
+							<!--<input name="is_check" value="1" class="ace ace-switch ace-switch-5" type="checkbox" />-->
+							<!--<span class="lbl">默认通过</span>-->
+						<!--</div>-->
+					<!--</div>-->
+					<!--<div class="space-4"></div>-->
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 审核状态：  </label>
+						<div class="col-sm-9">
+							<select name="is_check" id="is_check" class="col-sm-3 selector" required>
+								<option {if condition="$result.is_check eq 1"} selected {/if} value="1">待审查</option>
+								<option {if condition="$result.is_check eq 2"} selected {/if} value="2">通过</option>
+								<option {if condition="$result.is_check eq 3"} selected {/if} value="3">不通过</option>
+							</select>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span></span>
+						</div>
+					</div>
+
+
+					<div id="reject" class="form-group" {if condition="is_null($result.reject_reason)"} style="display:none;" {/if}>
+					<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 拒绝原因：  </label>
+					<div class="col-sm-9">
+						<input type="text" name="reject_reason" id="reject_reason" {if condition='$result.reject_reason eq 1'}checked {/if} class="col-xs-10 col-sm-4"/>
+						<span class="lbl">&nbsp;&nbsp;<span class="red">
+					</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 是否发布： </label>
+						<div class="col-sm-9" style="padding-top:5px;">
+							<input name="is_effective" id="is_effective" {if condition="$result.is_effective eq 1"}checked{/if}  value="{$result.is_effective}" class="ace ace-switch ace-switch-5" type="checkbox" />
+							<span class="lbl">默认发布</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 所属会员账号： </label>
+						<div class="col-sm-9">
+							<input type="text" name="member_list_tel" id="member_list_tel" value="{$result.member_list_tel}"  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="clearfix form-actions">
+						<div class="col-sm-offset-3 col-sm-9">
+							<button class="btn btn-info" type="submit">
+								<i class="ace-icon fa fa-check bigger-110"></i>
+								保存
+							</button>
+
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset">
+								<i class="ace-icon fa fa-undo bigger-110"></i>
+								重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{/block}
+{block name="scripts"}
+<script type="text/javascript" src="/static/admin/datetimepicker/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/static/admin/datetimepicker/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/admin/datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<!--<script type="text/javascript" src="/static/admin/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>-->
+<!--<script type="text/javascript" src="/static/admin/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>-->
+<script type="text/javascript" src="/static/admin/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+
+<script>
+    $("#rdo input").change(function () {
+
+        //alert($("#rdo input:checked").val())
+        if($("#rdo input").eq(0).prop("checked")){
+            $(".box").show();
+            $(".box1").hide();$(".box3").hide();$(".box4").hide();$(".date").hide();
+        }else if($("#rdo input").eq(1).prop("checked")){
+            $(".box").show();
+            $(".box1").hide();$(".box2").hide();$(".box4").hide();$(".date").hide();
+        }else{
+            $(".box").show();
+            $(".box2").hide();$(".box3").hide()
+        }
+    })
+
+
+    //类型变化
+    $('#mechanical_id').change(function(){
+        var id = $("#mechanical_id").val();
+        $.ajax({
+            type:"post",
+            url:"{:Url('/admin/Mechanical/getBrand')}",
+            data:{mechanical_id:id},
+            success:function(str){
+                $('#brand_id').html(str);
+            }
+        });
+    });
+    //品牌变化
+    $("#brand_id").change(function(){
+        var id = $("#mechanical_id").val();
+        var brand_id = $("#brand_id").val();
+        $.ajax({
+            type:"post",
+            url:"{:Url('getModle')}",
+            data:{
+                mechanical_id:id,
+                brand_id:brand_id
+            },
+            success:function(str){
+                $('#mechanical_model_id').html(str);
+            }
+        });
+    });
+    //省变化
+    $("#province_id").change(function(){
+        var id = $("#province_id").val();
+        $.ajax({
+            type:"post",
+            url:"{:Url('getCity')}",
+            data:{
+                province_id:id
+            },
+            success:function(str){
+                $('#city_id').html(str);
+            }
+        });
+    });
+    //时间选择器
+    $('.form_date').datetimepicker({
+        language:  'zh-CN',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        minView: 2,
+        forceParse: 0
+    });
+
+    //拒绝原因显示与否
+    $("#is_check").change(function () {
+        console.log($(this).find("option:selected").val())
+        if($(this).find("option:selected").val()==3){
+            $("#reject").show()
+        }else{
+            $("#reject").hide()
+            $("#reject_reason").val("");
+        }
+    })
+</script>
+{/block}

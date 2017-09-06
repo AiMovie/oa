@@ -1,0 +1,58 @@
+{extend name="Admin@Public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+		<!--主题-->
+		<div class="page-header">
+			<h1>
+				您当前操作
+				<small>
+					<i class="ace-icon fa fa-angle-double-right"></i>
+					发送消息模板
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal ajaxForm2" name="result" method="post" action="">
+					<input type="hidden" name="result" value="" />
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 内容标题：  </label>
+						<div class="col-sm-10">
+							<input type="text" maxlength="20" name="title" id="member_list_tel" placeholder="请输入标题" value="" class="col-xs-10 col-sm-5" required/>
+							<span class="lbl col-xs-12 col-sm-7"><span class="red">*</span>必须&nbsp;&nbsp;最多20字</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 发送消息内容：  </label>
+						<div class="col-sm-10">
+							<textarea name="content" maxlength="500" class="col-xs-10 col-sm-5" required></textarea>
+							<span class="lbl col-xs-12 col-sm-7"><span class="red">*</span>必须&nbsp;&nbsp;最多500字</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="clearfix form-actions">
+						<div class="col-md-offset-3 col-md-9">
+							<button class="btn btn-info" type="submit">
+								<i class="ace-icon fa fa-check bigger-110"></i>
+								保存
+							</button>
+
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset">
+								<i class="ace-icon fa fa-undo bigger-110"></i>
+								重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div><!-- /.page-content -->
+{/block}
+{block name="scripts"}
+	<script type="text/javascript" src="__PUBLIC__/others/region.js"></script>
+{/block}

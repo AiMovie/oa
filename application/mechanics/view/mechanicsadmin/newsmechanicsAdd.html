@@ -1,0 +1,252 @@
+{extend name="Admin@Public/base"/}
+{block name="main-content"}
+	<div class="page-content">
+		<!--主题-->
+		<div class="page-header">
+			<h1>
+				您当前操作
+				<small>
+					<i class="ace-icon fa fa-angle-double-right"></i>
+					添加型号
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal ajaxForm2" name="member_list_add" method="post" action="{:Url('newsmechanicsAdd')}">
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 生产国：  </label>
+						<div class="col-sm-10">
+							<select name="producing_country" id="producing_country" class="col-sm-3 selector" required>
+								<option value="">请选择</option>
+								{foreach name='product_country' item='vo'}
+								<option value="{$vo.id}">{$vo.name}</option>
+								{/foreach}
+							</select>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span></span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 选择机械类型：  </label>
+						<div class="col-sm-10">
+							<select name="mechanical_id" id="mechanical_id" class="col-sm-3 selector" required>
+								<option value="">请选择</option>
+								{foreach name="mechanical_list" item="v"}
+									<option value="{$v.id}">{$v.mechanical_name}</option>
+								{/foreach}
+							</select>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span></span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 选择机械品牌：  </label>
+						<div class="col-sm-10">
+							<select name="brand_id" id="brand_id" class="col-sm-3 selector" required>
+								<option value="">请选择</option>
+								{foreach name="brand_list" item="list"}
+									<option value="{$list.id}">{$list.brand_name}</option>
+								{/foreach}
+							</select>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span></span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 选择机械型号：  </label>
+						<div class="col-sm-10">
+							<select name="mechanical_model_id" id="mechanical_model_id" class="col-sm-3 selector" required>
+								<option value="">请选择</option>
+								{foreach name="model_list" item="list"}
+								<option value="{$list.id}">{$list.brand_name}</option>
+								{/foreach}
+							</select>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span></span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+					<div class="form-group" id="pic_list">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 图片： </label>
+						<div class="col-sm-9">
+							<input type="hidden" name="checkpic" id="checkpic" value="{$sys.start_img}" />
+							<input type="hidden" name="oldcheckpic" id="oldcheckpic" value="{$sys.start_img}" />
+							<input type="hidden" name="oldcheckpicname" id="oldcheckpic" value="{$sys.start_img}" />
+							<a href="javascript:;" class="file" title="点击选择所要上传的图片">
+								<input type="file" name="file0" id="file0" multiple="multiple"/>
+								选择上传文件
+							</a>
+							&nbsp;&nbsp;<a href="javascript:;" onclick="return backpic('{if condition="$sys.site_logo eq ''"}/static/img/no_img.jpg{else /}{$sys.start_img}{/if}');" title="还原修改前的图片" class="file">
+							撤销上传
+							</a>
+							<div><img src="{if condition="$sys.start_img neq ''"}{$sys.start_img}{else/}/static/img/no_img.jpg{/if}" height="70" id="img0" ></div>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 所在地：  </label>
+						<div class="col-sm-10">
+							<select name="province_id" id="province_id">
+								<option value="0" selected>省份/直辖市</option>
+								{foreach name="province" item="list"}
+								<option value="{$list.id}" >{$list.name}</option>
+								{/foreach}
+							</select>
+							<select name="city_id" id="city_id">
+								<option value="0">市/县</option>
+							</select>
+							<!--<select name="province_id" id="province_id">-->
+								<!--<option value="0" selected>省份/直辖市</option>-->
+								<!--{foreach name="province" item="list"}-->
+								<!--<option value="{$list.cityid}" >{$list.name}</option>-->
+								<!--{/foreach}-->
+							<!--</select>-->
+							<!--<select name="city_id" id="city_id">-->
+								<!--<option value="0">市/县</option>-->
+							<!--</select>-->
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 公司名称：  </label>
+						<div class="col-sm-10">
+							<input type="text" name="company_name" id="company_name" placeholder="输入公司名称" class="col-xs-10 col-sm-4" required/>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 联系方式：  </label>
+						<div class="col-sm-10">
+							<input type="text" name="telphone" id="telphone" placeholder="输入联系方式" class="col-xs-10 col-sm-4" required/>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 价格：  </label>
+						<div class="col-sm-10">
+							<input type="text" name="price" id="price" placeholder="输入价格" class="col-xs-10 col-sm-4" required/>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>只能填写数字</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 是否有发票： </label>
+						<div class="col-sm-10" style="padding-top:5px;">
+							<input name="is_invoice" id="is_invoice" value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
+							<span class="lbl">&nbsp;&nbsp;默认没有</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+
+
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 是否审核： </label>
+						<div class="col-sm-10" style="padding-top:5px;">
+							<input name="is_check" id="is_check" value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
+							<span class="lbl">&nbsp;&nbsp;默认关闭</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 是否有效： </label>
+						<div class="col-sm-10" style="padding-top:5px;">
+							<input name="is_effective" id="is_effective" value="1" class="ace ace-switch ace-switch-4 btn-flat" type="checkbox" />
+							<span class="lbl">&nbsp;&nbsp;默认无效</span>
+						</div>
+					</div>
+
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-2 control-label no-padding-right" for="form-field-1">所属用户：  </label>
+						<div class="col-sm-10">
+							<input type="text" name="member_list_tel" id="member_list_tel" placeholder="输入用户" class="col-xs-10 col-sm-4" required/>
+							<span class="lbl">&nbsp;&nbsp;<span class="red">
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+
+					<div class="clearfix form-actions">
+						<div class="col-md-offset-3 col-md-9">
+							<button class="btn btn-info" type="submit">
+								<i class="ace-icon fa fa-check bigger-110"></i>
+								保存
+							</button>
+
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset">
+								<i class="ace-icon fa fa-undo bigger-110"></i>
+								重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div><!-- /.page-content -->
+{/block}
+{block name="scripts"}
+	<script>
+		//类型变化
+		$('#mechanical_id').change(function(){
+			var id = $("#mechanical_id").val();
+			$.ajax({
+				type:"post",
+				url:"{:Url('/admin/Mechanical/getBrand')}",
+				data:{mechanical_id:id},
+				success:function(str){
+					$('#brand_id').html(str);
+				}
+			});
+		});
+        //品牌变化
+        $("#brand_id").change(function(){
+            var id = $("#mechanical_id").val();
+            var brand_id = $("#brand_id").val();
+            $.ajax({
+                type:"post",
+                url:"{:Url('getModle')}",
+                data:{
+                    mechanical_id:id,
+					brand_id:brand_id
+                },
+                success:function(str){
+                    $('#mechanical_model_id').html(str);
+                }
+            });
+        });
+        //省变化
+        $("#province_id").change(function(){
+            var id = $("#province_id").val();
+            $.ajax({
+                type:"post",
+                url:"{:Url('getCity')}",
+                data:{
+                    province_id:id
+                },
+                success:function(str){
+                    $('#city_id').html(str);
+                }
+            });
+        });
+	</script>
+{/block}

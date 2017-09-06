@@ -1,0 +1,179 @@
+{extend name="Admin@Public/base" /}
+{block name="main-content"}
+	<div class="page-content">
+		<link rel="stylesheet" type="text/css" media="all" href="/static/sldate/daterangepicker-bs3.css" />
+		<!--主题-->
+		<div class="page-header">
+			<h1>
+				您当前操作
+				<small>
+					<i class="ace-icon fa fa-angle-double-right"></i>
+					修改广告信息
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal ajaxForm3" name="plug_ad_add" method="post" action="{:url('ad_pc_edit')}" enctype=multipart/form-data>
+				<input type="hidden" name="plug_ad_id" value="{$plug_ad_info.plug_ad_id}">
+				<div class="" style="width:1000px;">
+					<div class="">
+						<div class="modal-body">
+							<div class="row">
+								<div class="col-xs-12">
+                                    <div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 所属位置： </label>
+										<div class="col-sm-9">
+											<select name="plug_ad_adtypeid"  class="col-sm-4 selector" id="plug_ad_adtypeid" required>
+												<option value="">请选择所属广告位</option>
+												{foreach name="plug_adtype_list" item="v"}
+													<option {if condition='$plug_ad_info.plug_ad_adtypeid eq $v.plug_adtype_id'  } selected {/if} value="{$v.plug_adtype_id}">{$v.plug_adtype_name}</option>
+												{/foreach}
+											</select>
+										</div>
+									</div>
+									<div class="space-4"></div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"></label>
+										<div class="col-sm-9">
+											<span class="col-xs-10 col-sm-5" id="adtype_info"><span>
+										</div>
+									</div>
+									<div class="space-4"></div>
+									
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 广告标题：  </label>
+										<div class="col-sm-9">
+											<input type="text" value ='{$plug_ad_info.plug_ad_name}' name="plug_ad_name" id="plug_ad_name" placeholder="输入广告标题" class="col-xs-10 col-sm-5" required/>
+										</div>
+									</div>
+									<div class="space-4"></div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 内容  </label>
+										<div class="col-sm-9">
+											<input type="text" value ='{$plug_ad_info.plug_ad_content}' name="plug_ad_content" id="plug_ad_content" placeholder="内容" class="col-xs-10 col-sm-5" required/>
+										</div>
+									</div>
+									<div class="space-4"></div>
+
+									<div class="form-group" id="pic_list">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 广告类型： </label>
+										<div class="col-sm-9" id="type">
+											<select name="plug_ad_checkid" id="select" class="col-sm-4 selector" required>
+												<option {if condition="$plug_ad_info.plug_ad_checkid eq 1"} selected {/if}  value="1" name="image">图片</option>
+												<option {if condition="$plug_ad_info.plug_ad_checkid eq 2"} selected {/if}  value="2" name="JS">新机械</option> 
+												<option {if condition="$plug_ad_info.plug_ad_checkid eq 3"} selected {/if}  value="3" name="goods">二手机械</option>
+												<option  {if condition="$plug_ad_info.plug_ad_checkid eq 4"} selected {/if} value="4" name="shop">修理厂</option>
+												<option  {if condition="$plug_ad_info.plug_ad_checkid eq 5"} selected {/if} value="5" name="shop">机械配件</option>
+												<option  {if condition="$plug_ad_info.plug_ad_checkid eq 6"} selected {/if} value="6" name="shop">租赁</option>
+												<option  {if condition="$plug_ad_info.plug_ad_checkid eq 7"} selected {/if} value="7" name="shop">融资按揭</option>
+												<option {if condition="$plug_ad_info.plug_ad_checkid eq 8"} selected {/if}  value="8" name="shop">司机</option>
+												<option {if condition="$plug_ad_info.plug_ad_checkid eq 9"} selected {/if}  value="9" name="shop">代办证件</option>
+										    </select>
+										</div>
+										<div class="col-sm-9" id="pc_image">
+											<a href="javascript:;" class="file">
+												<input type="file" name="file0" id="file0" multiple="multiple"/>
+												选择上传文件
+											</a>
+											<a href="javascript:;" onclick="return backpic('/static/img/no_img.jpg');" title="还原修改前的图片" class="file">
+												撤销上传
+											</a>
+
+											<div><img src="{$plug_ad_info.plug_ad_pic}" height="70" id="img0" ></div>
+										</div>
+									</div>
+									<div class="space-4"></div>
+                            
+									<div class="form-group" id="pic_listurl">
+										<div class="col-sm-9">
+											<input type="hidden" name="plug_ad_url" value='{$plug_ad_info.plug_ad_url}' id="plug_ad_url" placeholder="输入对象ID" class="col-xs-10 col-sm-8" />
+											<span class="lbl">&nbsp;&nbsp;<span class="red">*</span></span>
+										</div>
+									</div>
+									<div class="form-group" id="pic_listurl">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 输入对象ID：  </label>
+										<div class="col-sm-9">
+											<input type="number" name="object_id" id="plug_ad_url" value='{$plug_ad_info.plug_ad_object_id}' placeholder="输入对象ID" class="col-xs-10 col-sm-8" required/>
+											<span class="lbl">&nbsp;&nbsp;<span class="red">*</span></span>
+										</div>
+									</div>
+									<div class="space-4"></div>
+	                                    <div class="form-group">
+											<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 日期：  </label>
+											<div class="col-sm-9">
+												<input type="text"  name="reservation" id="reservation" class="form-control sl-date" value="{$plug_ad_info.plug_ad_starttime|date='Y-m-d',###}-{:date('Y-m-d',$plug_ad_info.plug_ad_endtime)}" placeholder="点击选择日期范围"/>
+											</div>
+									    </div>
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 排序：  </label>
+										<div class="col-sm-9">
+											<input type="text" name="plug_ad_order" id="plug_ad_order" value="100" class="col-xs-10 col-sm-3" />
+											<span class="lbl">&nbsp;&nbsp;<span class="red">*</span>从小到大排序</span>
+										</div>
+									</div>
+									<div class="space-4"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-offset-3 col-md-9">
+							<button type="submit" class="btn btn-primary">
+								提交保存
+							</button>
+							<button class="btn btn-info" type="reset">
+								重置
+							</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">
+								关闭
+							</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</form>
+	</div><!--col-xs-12-->
+	</div><!--row-->
+
+
+	</div><!-- /.page-content -->
+{/block}
+{block name="scripts"}
+	<script>
+		$("#plug_ad_checkjsid").click(function(){
+			$("#pic_jslist").show();
+			$("#pic_list").hide();
+			$("#pic_listurl").hide();
+		});
+		$("#plug_ad_checkid").click(function(){
+			$("#pic_jslist").hide();
+			$("#pic_list").show();
+			$("#pic_listurl").show();
+		});
+	</script>
+{/block}
+{block name="scripts"}
+	<script type="text/javascript" src="/static/sldate/moment.js"></script>
+	<script type="text/javascript" src="/static/sldate/daterangepicker.js"></script>
+	<script type="text/javascript">
+		$('#reservation').daterangepicker(null, function(start, end, label) {
+			
+			console.log(start.toISOString(), end.toISOString(), label);
+		});
+	</script>
+	<script type="text/javascript">
+		$("#plug_ad_adtypeid").change(function(){
+			var id = $(this).val();
+			$.ajax({
+				url:'{:url("Plug/Plug/getadtypinfo")}',
+				data:{id:id},
+				type:"POST",
+				success:function(result)
+				{
+					$('#adtype_info').text(result);
+				},
+			})
+		});
+	
+	</script>
+{/block}

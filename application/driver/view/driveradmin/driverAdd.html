@@ -1,0 +1,343 @@
+{extend name="admin@public/base" /}
+{block name="main-content"}
+	<script src="/static/uploadify/api-uploadify.js" type="text/javascript"></script>
+	<div class="page-content">
+		<!--主题-->
+		<div class="page-header">
+			<h1>
+				您当前操作
+				<small>
+					<i class="ace-icon fa fa-angle-double-right"></i>
+					添加司机
+				</small>
+			</h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal ajaxForm" name="sys" method="post" action="{:url('driverAdd')}">
+				{if condition="!empty($driver_list)"}
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 司机类型： </label>
+						<div class="col-sm-9">
+							<div class="radio" >
+							{if condition='$driver_multi eq 0'}
+								{foreach name='driver_list' item='type'}
+									<label id="class_{$driver.driver_value}">
+										<input name="type" id="beno" checked type="radio" class="ace ace-checkbox-2" value="{$type.id}"/>
+										<span class="lbl"> {$type.name}</span>
+									</label>
+									{/foreach}
+							{else /}
+								{foreach name='$driver_list' item='type'}
+									<label id="class">
+										<input class="ace ace-checkbox-2" name="type[]" type="checkbox" id="news_flag_va{$type.id}" value="{$type.id}" />
+										<span class="lbl"> {$type.name}</span>
+									</label>
+								{/foreach}
+							{/if}
+							</div>
+						</div>
+					</div>
+					{/if}
+
+					<div class="space-4"></div>
+					{if condition="!empty($card_list)"}
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 证件类型： </label>
+						<div class="radio">
+						{if condition="$card_multi eq 0"}
+							{foreach name='card_list' item='card'}
+							<label id=''>
+								<input class="ace ace-checkbox-2" name="class_id" type="radio"  value="{$card.id}" />
+								<span class="lbl"> {$card.name}</span>
+							</label>
+							{/foreach}
+						{else /}
+							{foreach name='$card_list' item='type'}
+								<label id="class">
+									<input class="ace ace-checkbox-2" name="class_id[]" type="checkbox" id="news_flag_va{$type.id}" value="{$type.id}" />
+									<span class="lbl"> {$type.name}</span>
+								</label>
+							{/foreach}
+						{/if}
+						</div>
+					</div>
+					{/if}
+					<div class="space-4"></div>
+					{if condition="!empty($sex_list)"}
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 性别： </label>
+							<div class="checkbox" >
+							{if condition="$sex_multi eq 0"}
+								{foreach name="$sex_list" item="v" }
+								<label id="{$sex.id}">
+									<input class="ace ace-checkbox-2" name="sex" type="radio"  value="{$v.id}" />
+									<span class="lbl"> {$v.name}</span>
+								</label>
+								{/foreach}
+							{else /}
+								{foreach name='$sex_list' item='v'}
+								<label id="class">
+									<input class="ace ace-checkbox-2" name="sex[]" type="checkbox"  value="{$v.id}" />
+									<span class="lbl"> {$v.name}</span>
+								</label>
+								{/foreach}
+							{/if}
+					</div>
+					{/if}
+					<div class="space-4"></div>
+					{if condition="!empty($class_list)"}
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 文化程度： </label>
+						<div class="checkbox col-sm-9">
+							{if condition="$class_multi eq 0"}
+							<select name="education_level" id="education_level" class="col-sm-6 selector" required>
+								<option value="" selected>文化程度</option>
+								{foreach name="class_list" item="class"}
+								<option value="{$class.id}" >{$class.name}</option>
+								{/foreach}
+							</select>
+							{else /}
+								{foreach name='$class_list' item='v'}
+								<label id="class">
+									<input class="ace ace-checkbox-2" name="education_level[]" type="checkbox"  value="{$v.id}" />
+									<span class="lbl"> {$v.name}</span>
+								</label>
+								{/foreach}
+							{/if}
+							<span class="middle red" id="restwo">*</span>
+						</div>
+					</div>
+					{/if}
+
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 薪资要求： </label>
+						<div class="col-sm-9">
+							<input type="text" name="salary" id="salary" value=""  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+							<span class="middle red" id="restwo">*</span>
+						</span>
+						</div>
+					</div>
+
+					<div class="form-group" id="pic_list">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 封面图： </label>
+						<div class="col-sm-9">
+							<input type="hidden" name="checkpic" id="checkpic" value="{$sys.start_img}" />
+							<input type="hidden" name="oldcheckpic" id="oldcheckpic" value="{$sys.start_img}" />
+							<input type="hidden" name="oldcheckpicname" id="oldcheckpic" value="{$sys.start_img}" />
+							<a href="javascript:;" class="file" title="点击选择所要上传的图片">
+								<input type="file" name="file0" id="file0" multiple="multiple"/>
+								选择上传文件
+							</a>
+							&nbsp;&nbsp;<a href="javascript:;" onclick="return backpic('{if condition="$sys.site_logo eq ''"}/static/img/no_img.jpg{else /}{$sys.start_img}{/if}');" title="还原修改前的图片" class="file">
+							撤销上传
+							</a>
+							<div><img src="{if condition="$my_info['cover_image'] neq ''"}{$my_info['cover_image']}{else/}/static/img/no_img.jpg{/if}" height="70" id="img0" ></div>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					{if condition="$name_state eq 1"}
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 姓名： </label>
+						<div class="col-sm-9">
+							<input type="text" name="name" id="name" value=""  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					{/if}
+
+					
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 籍贯： </label>
+						<div class="col-sm-9">
+							<select name="province" id="province" class="col-sm-3 selector" required>
+								<option value="" selected>省份/直辖市</option>
+								{foreach name="province" item="list"}
+								<option value="{$list.id}" >{$list.name}</option>
+								{/foreach}
+							</select>
+							<select name="city" id="city" class="col-sm-3 selector" required>
+								<option value="0">市/县</option>
+							</select>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					{if condition="$name_state eq 1"}
+					<div class="space-4"></div>
+					
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 民族： </label>
+						<div class="col-sm-9">
+							<input type="text" name="nation" id="nation" value=""  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					{/if}
+					{if condition="$national_state eq 1"}
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 电话： </label>
+						<div class="col-sm-9">
+							<input type="text" name="telphone" id="telphone" value=""  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					{/if}
+					{if condition="$age_state eq 1"}
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 年龄： </label>
+						<div class="col-sm-9">
+							<input type="text" name="age" id="age" value=""  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					{/if}
+					{if condition="$driver_age_state eq 1"}
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 驾龄： </label>
+						<div class="col-sm-9">
+							<input type="text" name="driving_age" id="driving_age" value=""  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					{/if}
+					
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 工作区域：  </label>
+						<div class="col-sm-9">
+							<select name="province_id" id="province_id" class="col-sm-3 selector" required>
+								<option value="" selected>省份/直辖市</option>
+								{foreach name="province" item="list"}
+								<option value="{$list.id}" >{$list.name}</option>
+								{/foreach}
+							</select>
+							<select name="city_id" id="city_id" class="col-sm-3 selector" required>
+								<option value="0">市/县</option>
+							</select>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					
+					<div class="space-4"></div>
+
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 自我介绍 : </label>
+						<div class="col-sm-9">
+							<textarea  name="intro" cols="20" rows="3" class="col-xs-10 col-sm-7 limited1"   id="form-field-10"  maxlength="150">{$sys.site_copyright}</textarea>
+							<input type="hidden" name="maxlengthone" value="150" />
+							<span class="help-inline col-xs-5 col-sm-5">
+								还可以输入 <span class="middle charsLeft1"></span> 个字符
+						</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 是否审核： </label>
+						<div class="col-sm-9" style="padding-top:5px;">
+							<input name="is_check" value="1" class="ace ace-switch ace-switch-5" type="checkbox" />
+							<span class="lbl">默认通过</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 是否发布： </label>
+						<div class="col-sm-9" style="padding-top:5px;">
+							<input name="is_effective" id="is_effective" {if condition="$info.is_effective neq 0"}checked{/if}  value="1" class="ace ace-switch ace-switch-5" type="checkbox" />
+							<span class="lbl">默认发布</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+
+
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> 所属会员账号： </label>
+						<div class="col-sm-9">
+							<input type="text" name="member_list_tel" id="member_list_tel" value=""  class="col-xs-10 col-sm-6" required/>
+							<span class="help-inline col-xs-12 col-sm-3">
+								<span class="middle red" id="restwo">*</span>
+							</span>
+						</div>
+					</div>
+					<div class="space-4"></div>
+
+					<div class="clearfix form-actions">
+						<div class="col-sm-offset-3 col-sm-9">
+							<button class="btn btn-info" type="submit">
+								<i class="ace-icon fa fa-check bigger-110"></i>
+								保存
+							</button>
+
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset">
+								<i class="ace-icon fa fa-undo bigger-110"></i>
+								重置
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+{/block}
+{block name="scripts"}
+	<script>
+	    //省变化
+	    $("#province_id").change(function(){
+	        var id = $("#province_id").val();
+	        $.ajax({
+	            type:"post",
+	            url:"{:Url('getCity')}",
+	            data:{
+	                province_id:id
+	            },
+	            success:function(str){
+	                $('#city_id').html(str);
+	            }
+	        });
+	    });
+
+        //籍贯省变化
+        $("#province").change(function(){
+            var id = $("#province").val();
+            $.ajax({
+                type:"post",
+                url:"{:Url('getCity')}",
+                data:{
+                    province_id:id
+                },
+                success:function(str){
+                    $('#city').html(str);
+                }
+            });
+        });
+	</script>
+{/block}
