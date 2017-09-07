@@ -1,0 +1,684 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="70835707-99f8-45db-b5dc-27ffe7c345ad" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/application/contract/view/contractadmin/contractlist.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/contract/controller/Contractadmin.php" afterPath="$PROJECT_DIR$/application/contract/controller/Contractadmin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/contract/view/contractadmin/contractadd.html" afterPath="$PROJECT_DIR$/application/contract/view/contractadmin/contractadd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/contract/view/contractadmin/contractedit.html" afterPath="$PROJECT_DIR$/application/contract/view/contractadmin/contractedit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/contract/view/contractadmin/contractshow.html" afterPath="$PROJECT_DIR$/application/contract/view/contractadmin/contractshow.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/contract/view/contractadmin/index.html" afterPath="$PROJECT_DIR$/application/contract/view/contractadmin/index.html" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Contractadmin.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/contract/controller/Contractadmin.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5103">
+              <caret line="196" column="17" lean-forward="false" selection-start-line="196" selection-start-column="17" selection-end-line="196" selection-end-column="17" />
+              <folding>
+                <marker date="1504693509737" expanded="true" signature="2487:2949" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="2512:2949" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="2544:2949" ph="..." />
+                <marker date="1504693509737" expanded="true" signature="9895:9928" ph="..." />
+                <marker date="1504693509737" expanded="true" signature="9938:9956" ph=" 删除信息 ..." />
+                <marker date="1504693509737" expanded="true" signature="9995:10492" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="10121:10197" ph="..." />
+                <marker date="1504693509737" expanded="true" signature="10316:10394" ph="..." />
+                <marker date="1504693509737" expanded="true" signature="10409:10485" ph="..." />
+                <marker date="1504693509737" expanded="true" signature="10501:10519" ph=" 状态激活 ..." />
+                <marker date="1504693509737" expanded="true" signature="10556:11202" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="10777:10983" ph="..." />
+                <marker date="1504693509737" expanded="true" signature="10989:11195" ph="..." />
+                <marker date="1504693509737" expanded="true" signature="11211:11236" ph=" 根据类型、品牌获取型号 ..." />
+                <marker date="1504693509737" expanded="true" signature="11269:11774" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="11380:11472" ph="..." />
+                <marker date="1504693509737" expanded="true" signature="11633:11742" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="11784:11805" ph=" 根据省获取城市 ..." />
+                <marker date="1504693509737" expanded="true" signature="11837:12487" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="11961:12152" ph="..." />
+                <marker date="1504693509737" expanded="true" signature="12158:12262" ph="..." />
+                <marker date="1504693509737" expanded="true" signature="12353:12456" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="12497:12536" ph=" 配置信息 ..." />
+                <marker date="1504693509737" expanded="true" signature="12568:13384" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="12606:13000" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="13013:13378" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="13153:13221" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="13238:13294" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="13394:13433" ph=" 参数管理 ..." />
+                <marker date="1504693509737" expanded="true" signature="13471:13743" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="13494:13603" ph="..." />
+                <marker date="1504693509737" expanded="true" signature="13753:13792" ph=" 添加参数 ..." />
+                <marker date="1504693509737" expanded="true" signature="13833:14512" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="13887:14417" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="13919:14293" ph="..." />
+                <marker date="1504693509737" expanded="true" signature="14451:14506" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="14522:14561" ph=" 修改参数 ..." />
+                <marker date="1504693509737" expanded="true" signature="14603:15562" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="14652:14723" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="14771:15321" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="14803:15177" ph="..." />
+                <marker date="1504693509737" expanded="true" signature="15355:15556" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="15572:15590" ph=" 删除参数 ..." />
+                <marker date="1504693509737" expanded="true" signature="15634:16008" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="15692:15759" ph="..." />
+                <marker date="1504693509737" expanded="true" signature="15861:15929" ph="..." />
+                <marker date="1504693509737" expanded="true" signature="15935:16001" ph="..." />
+                <marker date="1504693509737" expanded="true" signature="16017:16057" ph=" 查看参数值 ..." />
+                <marker date="1504693509737" expanded="true" signature="16100:16573" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="16159:16230" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="16392:16434" ph="..." />
+                <marker date="1504693509737" expanded="true" signature="16583:16624" ph=" 添加参数值 ..." />
+                <marker date="1504693509737" expanded="true" signature="16670:17560" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="16729:16800" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="16848:17309" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="16880:17161" ph="..." />
+                <marker date="1504693509737" expanded="true" signature="17343:17554" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="17570:17610" ph=" 修改参数值 ..." />
+                <marker date="1504693509737" expanded="true" signature="17706:17809" ph="{...}" />
+                <marker date="1504693509737" expanded="true" signature="17890:18180" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contractadd.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/contract/view/contractadmin/contractadd.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="513">
+              <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contractedit.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/contract/view/contractadmin/contractedit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="19" column="59" lean-forward="true" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contractshow.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/contract/view/contractadmin/contractshow.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <marker date="1504693664451" expanded="true" signature="1376:1518" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="1431:1499" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="1567:1827" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="1717:1812" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="1861:2159" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="1933:1974" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="2009:2144" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="2064:2125" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="2193:2551" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="2265:2308" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="2343:2536" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="2398:2517" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="2585:3039" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="2657:2700" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="2735:3024" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="2790:3005" ph="..." />
+                <marker date="1504693664451" expanded="false" signature="3079:3097" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="3098:3472" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="3170:3213" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="3274:3457" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="3376:3438" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="3506:4161" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="3578:3619" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="3654:4146" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="3693:4127" ph="..." />
+                <marker date="1504693664451" expanded="true" signature="3769:3940" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/contract/view/contractadmin/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2511">
+              <caret line="93" column="96" lean-forward="true" selection-start-line="93" selection-start-column="64" selection-end-line="93" selection-end-column="96" />
+              <folding>
+                <marker date="1504752198562" expanded="false" signature="540:561" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/application/contract/view/contractadmin/contractedit.html" />
+        <option value="$PROJECT_DIR$/application/contract/view/contractadmin/index.html" />
+        <option value="$PROJECT_DIR$/application/contract/view/contractadmin/contractadd.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="file" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="file" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="file" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="file" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="file" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="file" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contract" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contractadmin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="file" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="file" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contract" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="70835707-99f8-45db-b5dc-27ffe7c345ad" name="Default" comment="" />
+      <created>1504680014690</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1504680014690</updated>
+      <workItem from="1504680015846" duration="778000" />
+      <workItem from="1504752112384" duration="801000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1579000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1444563" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32286024" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/application/contract/controller/Contractadmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5076">
+          <caret line="195" column="17" lean-forward="true" selection-start-line="195" selection-start-column="17" selection-end-line="195" selection-end-column="17" />
+          <folding>
+            <marker date="1504693509737" expanded="true" signature="2487:2949" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="2512:2949" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="2544:2949" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="9895:9928" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="9938:9956" ph=" 删除信息 ..." />
+            <marker date="1504693509737" expanded="true" signature="9995:10492" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="10121:10197" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="10316:10394" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="10409:10485" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="10501:10519" ph=" 状态激活 ..." />
+            <marker date="1504693509737" expanded="true" signature="10556:11202" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="10777:10983" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="10989:11195" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="11211:11236" ph=" 根据类型、品牌获取型号 ..." />
+            <marker date="1504693509737" expanded="true" signature="11269:11774" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="11380:11472" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="11633:11742" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="11784:11805" ph=" 根据省获取城市 ..." />
+            <marker date="1504693509737" expanded="true" signature="11837:12487" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="11961:12152" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="12158:12262" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="12353:12456" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="12497:12536" ph=" 配置信息 ..." />
+            <marker date="1504693509737" expanded="true" signature="12568:13384" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="12606:13000" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="13013:13378" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="13153:13221" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="13238:13294" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="13394:13433" ph=" 参数管理 ..." />
+            <marker date="1504693509737" expanded="true" signature="13471:13743" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="13494:13603" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="13753:13792" ph=" 添加参数 ..." />
+            <marker date="1504693509737" expanded="true" signature="13833:14512" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="13887:14417" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="13919:14293" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="14451:14506" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="14522:14561" ph=" 修改参数 ..." />
+            <marker date="1504693509737" expanded="true" signature="14603:15562" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="14652:14723" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="14771:15321" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="14803:15177" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="15355:15556" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="15572:15590" ph=" 删除参数 ..." />
+            <marker date="1504693509737" expanded="true" signature="15634:16008" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="15692:15759" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="15861:15929" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="15935:16001" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="16017:16057" ph=" 查看参数值 ..." />
+            <marker date="1504693509737" expanded="true" signature="16100:16573" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="16159:16230" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="16392:16434" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="16583:16624" ph=" 添加参数值 ..." />
+            <marker date="1504693509737" expanded="true" signature="16670:17560" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="16729:16800" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="16848:17309" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="16880:17161" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="17343:17554" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="17570:17610" ph=" 修改参数值 ..." />
+            <marker date="1504693509737" expanded="true" signature="17706:17809" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="17890:18180" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/contract/view/contractadmin/contractadd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/contract/view/contractadmin/contractshow.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1504693664451" expanded="true" signature="1376:1518" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="1431:1499" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="1567:1827" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="1717:1812" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="1861:2159" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="1933:1974" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2009:2144" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2064:2125" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2193:2551" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2265:2308" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2343:2536" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2398:2517" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2585:3039" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2657:2700" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2735:3024" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2790:3005" ph="..." />
+            <marker date="1504693664451" expanded="false" signature="3079:3097" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="3098:3472" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="3170:3213" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="3274:3457" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="3376:3438" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="3506:4161" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="3578:3619" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="3654:4146" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="3693:4127" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="3769:3940" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/contract/view/contractadmin/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="5" column="44" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
+          <folding>
+            <marker date="1504752198562" expanded="false" signature="540:561" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/contract/view/contractadmin/contractedit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" column="40" lean-forward="true" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/contract/view/contractadmin/contractlist.html" />
+    <entry file="file://$PROJECT_DIR$/application/contract/view/contractadmin/contractshow.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1504693664451" expanded="true" signature="1376:1518" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="1431:1499" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="1567:1827" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="1717:1812" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="1861:2159" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="1933:1974" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2009:2144" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2064:2125" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2193:2551" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2265:2308" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2343:2536" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2398:2517" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2585:3039" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2657:2700" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2735:3024" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="2790:3005" ph="..." />
+            <marker date="1504693664451" expanded="false" signature="3079:3097" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="3098:3472" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="3170:3213" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="3274:3457" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="3376:3438" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="3506:4161" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="3578:3619" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="3654:4146" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="3693:4127" ph="..." />
+            <marker date="1504693664451" expanded="true" signature="3769:3940" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/contract/controller/Contractadmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5103">
+          <caret line="196" column="17" lean-forward="false" selection-start-line="196" selection-start-column="17" selection-end-line="196" selection-end-column="17" />
+          <folding>
+            <marker date="1504693509737" expanded="true" signature="2487:2949" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="2512:2949" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="2544:2949" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="9895:9928" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="9938:9956" ph=" 删除信息 ..." />
+            <marker date="1504693509737" expanded="true" signature="9995:10492" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="10121:10197" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="10316:10394" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="10409:10485" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="10501:10519" ph=" 状态激活 ..." />
+            <marker date="1504693509737" expanded="true" signature="10556:11202" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="10777:10983" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="10989:11195" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="11211:11236" ph=" 根据类型、品牌获取型号 ..." />
+            <marker date="1504693509737" expanded="true" signature="11269:11774" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="11380:11472" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="11633:11742" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="11784:11805" ph=" 根据省获取城市 ..." />
+            <marker date="1504693509737" expanded="true" signature="11837:12487" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="11961:12152" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="12158:12262" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="12353:12456" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="12497:12536" ph=" 配置信息 ..." />
+            <marker date="1504693509737" expanded="true" signature="12568:13384" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="12606:13000" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="13013:13378" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="13153:13221" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="13238:13294" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="13394:13433" ph=" 参数管理 ..." />
+            <marker date="1504693509737" expanded="true" signature="13471:13743" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="13494:13603" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="13753:13792" ph=" 添加参数 ..." />
+            <marker date="1504693509737" expanded="true" signature="13833:14512" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="13887:14417" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="13919:14293" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="14451:14506" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="14522:14561" ph=" 修改参数 ..." />
+            <marker date="1504693509737" expanded="true" signature="14603:15562" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="14652:14723" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="14771:15321" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="14803:15177" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="15355:15556" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="15572:15590" ph=" 删除参数 ..." />
+            <marker date="1504693509737" expanded="true" signature="15634:16008" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="15692:15759" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="15861:15929" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="15935:16001" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="16017:16057" ph=" 查看参数值 ..." />
+            <marker date="1504693509737" expanded="true" signature="16100:16573" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="16159:16230" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="16392:16434" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="16583:16624" ph=" 添加参数值 ..." />
+            <marker date="1504693509737" expanded="true" signature="16670:17560" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="16729:16800" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="16848:17309" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="16880:17161" ph="..." />
+            <marker date="1504693509737" expanded="true" signature="17343:17554" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="17570:17610" ph=" 修改参数值 ..." />
+            <marker date="1504693509737" expanded="true" signature="17706:17809" ph="{...}" />
+            <marker date="1504693509737" expanded="true" signature="17890:18180" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/contract/view/contractadmin/contractedit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="19" column="59" lean-forward="true" selection-start-line="19" selection-start-column="59" selection-end-line="19" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/contract/view/contractadmin/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2511">
+          <caret line="93" column="96" lean-forward="true" selection-start-line="93" selection-start-column="64" selection-end-line="93" selection-end-column="96" />
+          <folding>
+            <marker date="1504752198562" expanded="false" signature="540:561" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/contract/view/contractadmin/contractadd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="73" column="0" lean-forward="true" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

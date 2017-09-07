@@ -85,8 +85,10 @@ class Contractadmin extends Auth
                 'auth'=> input('auth',0),
                 'content'=> input('content'),
                 'create_time'=>time(),
+                'num'=>1
             ];
             $contractId=Db::name('contract')->insertGetId($data);
+            Db::name('contract')->where('id',$contractId)->setField('pid',$contractId);
             $res=$this->upload($contractId);
             if(!$res){
                 $this->success('添加成功',url('index'),1);
@@ -181,8 +183,8 @@ class Contractadmin extends Auth
      */
     public function contractedit()
     {
-        //如果修改了文件
-        if($_FILES){
+        //如果修改了文件并修改了信息
+        if(($_FILES)&&($_POST)){
             $contractId=$this->contractupdate();
             $this->upload($contractId);
             $this->success('修改成功', url('index'), 1);
@@ -190,7 +192,6 @@ class Contractadmin extends Auth
             //如果仅修改了信息
             if (($_POST)) {
                 $res=$this->contractupdate();
-                //将文件也挪过去，待完成
                 if($res){
                     $this->success('修改成功', url('index'), 1);
                 }
@@ -216,6 +217,7 @@ class Contractadmin extends Auth
      * @return int
      */
     public function contractupdate(){
+        //将当前版本信息复制到下一个版本
         $map['id'] = input('id');
         $res = Db::name('contract')
             ->where($map)
@@ -229,8 +231,11 @@ class Contractadmin extends Auth
             'auth'=> $res['auth'],
             'content'=> $res['content'],
             'create_time'=>time(),
+            'pid'=>$res['pid'],
+            'num'=>$res['num'],
         ];
         $contractId=Db::name('contract')->insertGetId($data);
+        //将修改的信息存入新版本
         $data = [
             'contract_name'=> input('contract_name'),
             'main'=> input('main'),
@@ -241,6 +246,52 @@ class Contractadmin extends Auth
             'content'=> input('content'),
         ];
         Db::name('contract')->where('id', $contractId)->update($data);
+        //版本号+1
+        Db::name('contract')->where('id', $contractId)->setInc('num');
+        if(input('del')) {
+            $map['id'] = input('id');
+            $del = input('del');
+            //删除的数组
+            $del = explode(',', $del);
+            $del=array_filter($del);
+            //原来的数组
+            $res = Db::name('file_upload')
+                ->where('oa_id',$map['id'])
+                ->select();
+            $data = [];
+            foreach ($res as $k=>$v){
+                $data[$k] = $v['id'];
+            }
+            $old=array_diff($data,$del);
+            foreach ($old as $k=>$v){
+                $res = Db::name('file_upload')
+                    ->where('id',$v)
+                    ->find();
+                $data = [
+                    'path'=> $res['path'],
+                    'oa_id'=> $contractId,
+                    'type'=>1,
+                    'uptime'=>$res['uptime'],
+                    'file_name'=>$res['file_name']
+                ];
+                Db::name('file_upload')->insert($data);
+            }
+        }else{
+            //将没删除的文件移到下一个版本
+            $res = Db::name('file_upload')
+                ->where('oa_id',$map['id'])
+                ->select();
+            foreach ($res as $v){
+                $data = [
+                    'path'=> $v['path'],
+                    'oa_id'=> $contractId,
+                    'type'=>1,
+                    'uptime'=>time(),
+                    'file_name'=>$v['file_name']
+                ];
+                Db::name('file_upload')->insert($data);
+            }
+        }
         return $contractId;
     }
 
