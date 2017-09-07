@@ -64,7 +64,7 @@
 
 					<div class="form-group timedate box">
 						<label class="col-sm-3 control-label no-padding-right" for="form-field-1">起始日期：   </label>
-						<div class="input-group date form_date col-md-3" data-date="2010-09-16T05:25:07Z" data-date-format="yyyy-mm-d" data-link-field="dtp_input1">
+						<div class="input-group date form_date col-md-3"  data-date-format="yyyy-mm-d" data-link-field="dtp_input1">
 							<input class="form-control" name="start_time"  size="16" type="text" value="" readonly>
 							<!--<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>-->
 							<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
@@ -74,7 +74,7 @@
 
 					<div class="form-group timedate box">
 						<label class="col-sm-3 control-label no-padding-right" for="form-field-1">终止日期：   </label>
-						<div class="input-group date end_date col-md-3" data-date="2010-09-16T05:25:07Z" data-date-format="yyyy-mm-d" data-link-field="dtp_input1">
+						<div class="input-group date end_date col-md-3"  data-date-format="yyyy-mm-d" data-link-field="dtp_input1">
 							<input class="form-control" name="end_time" id="manufacture_date" size="16" type="text" value="" readonly>
 							<!--<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>-->
 							<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
@@ -186,64 +186,6 @@
 <script type="text/javascript" src="/static/admin/datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
 
 <script>
-//$("#rdo input").change(function () {
-//
-//	//alert($("#rdo input:checked").val())
-//    if($("#rdo input").eq(0).prop("checked")){
-//        $(".box").show();
-//		$(".box1").hide();$(".box3").hide();$(".box4").hide();$(".timedate").hide()
-//	}else if($("#rdo input").eq(1).prop("checked")){
-//        $(".box").show();
-//        $(".box1").hide();$(".box2").hide();$(".box4").hide();$(".timedate").hide()
-//	}else{
-//        $(".box").show();
-//        $(".box2").hide();$(".box3").hide()
-//	}
-//})
-
-
-//    //类型变化
-//    $('#mechanical_id').change(function(){
-//        var id = $("#mechanical_id").val();
-//        $.ajax({
-//            type:"post",
-//            url:"{:Url('/admin/Mechanical/getBrand')}",
-//            data:{mechanical_id:id},
-//            success:function(str){
-//                $('#brand_id').html(str);
-//            }
-//        });
-//    });
-//    //品牌变化
-//    $("#brand_id").change(function(){
-//        var id = $("#mechanical_id").val();
-//        var brand_id = $("#brand_id").val();
-//        $.ajax({
-//            type:"post",
-//            url:"{:Url('getModle')}",
-//            data:{
-//                mechanical_id:id,
-//                brand_id:brand_id
-//            },
-//            success:function(str){
-//                $('#mechanical_model_id').html(str);
-//            }
-//        });
-//    });
-//    //省变化
-//    $("#province_id").change(function(){
-//        var id = $("#province_id").val();
-//        $.ajax({
-//            type:"post",
-//            url:"{:Url('getCity')}",
-//            data:{
-//                province_id:id
-//            },
-//            success:function(str){
-//                $('#city_id').html(str);
-//            }
-//        });
-//    });
     //时间选择器
     $('.form_date').datetimepicker({
         language:  'zh-CN',
